@@ -39,6 +39,7 @@ void CDLL_AppendNode(Node** Head, Node* NewNode) {
 	}
 }
 
+
 /* ³ëµå »ðÀÔ */
 void CDLL_InsertAfter(Node* Current, Node* NewNode) {
 	NewNode->NextNode = Current->NextNode;

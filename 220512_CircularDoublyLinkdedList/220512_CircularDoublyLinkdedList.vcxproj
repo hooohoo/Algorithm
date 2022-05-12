@@ -20,10 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{1D498728-E2AE-4300-B87F-1FF51DC99FAB}</ProjectGuid>
-    <RootNamespace>My220511</RootNamespace>
+    <ProjectGuid>{5184B4D3-1B54-4365-81C5-8CB27DF52CE9}</ProjectGuid>
+    <RootNamespace>My220512CircularDoublyLinkdedList</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>220511_DoublyLinkedList</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -124,9 +123,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DoublyLinkedList.c" />
-    <ClCompile Include="DoublyLinkedList.h" />
-    <ClCompile Include="Test_DoublyLinkedList.c" />
+    <ClInclude Include="CircularDoublyLinkedList.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CircularDoublyLinkedList.c" />
+    <ClCompile Include="Test_CircularDoublyLinkedList.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

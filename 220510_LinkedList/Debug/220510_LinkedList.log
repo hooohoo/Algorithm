@@ -1,0 +1,7 @@
+﻿  LinkedList.c
+  Test_LinkedList.c
+C:\Hoo\workspace\algorithm\220509\220510_LinkedList\LinkedList.c(20,49): warning C4028:  정식 매개 변수 1이(가) 선언과 다릅니다.
+C:\Hoo\workspace\algorithm\220509\220510_LinkedList\Test_LinkedList.c(14,23): warning C4047:  '함수': 'Node *'의 간접 참조 수준이 'Node **'과(와) 다릅니다.
+  코드를 생성하고 있습니다...
+C:\Hoo\workspace\algorithm\220509\220510_LinkedList\Test_LinkedList.c(14,23): warning C4024:  'SLL_AppendNode': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+  220510_LinkedList.vcxproj -> C:\Hoo\workspace\algorithm\220509\Debug\220510_LinkedList.exe

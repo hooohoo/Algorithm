@@ -1,0 +1,5 @@
+﻿  pointer.c
+C:\Hoo\workspace\algorithm\220509\pointer\pointer.c(26,24): warning C4013:  'malloc'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Hoo\workspace\algorithm\220509\pointer\pointer.c(36,20): warning C4013:  'realloc'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Hoo\workspace\algorithm\220509\pointer\pointer.c(46,6): warning C4013:  'free'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+  pointer.vcxproj -> C:\Hoo\workspace\algorithm\220509\Debug\pointer.exe

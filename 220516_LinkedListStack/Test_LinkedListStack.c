@@ -8,7 +8,7 @@ int main(void) {
 
 	LinkedListStack* Stack;
 
-	LLS_CreateNode(&Stack);
+	LLS_CreateStack(&Stack);
 
 	LLS_Push(Stack, LLS_CreateNode("abc"));
 	LLS_Push(Stack, LLS_CreateNode("def"));
@@ -35,7 +35,7 @@ int main(void) {
 		}
 		else {
 
-			pirntf("Stack Is Empty.\n");
+			printf("Stack Is Empty.\n");
 		}
 	}
 

@@ -30,7 +30,7 @@ void ET_PreorderPrintTree(ETNode* Node)
 	if (Node == NULL)
 		return;
 
-	printf("%c", Node->Data);
+	printf(" %c", Node->Data);
 	ET_PreorderPrintTree(Node->Left);
 	ET_PreorderPrintTree(Node->Right);
 }
@@ -87,9 +87,8 @@ double ET_Evaluate(ETNode* Tree)
 	double Left = 0;
 	double Right = 0;
 	double Result = 0;
-
 	if (Tree == NULL)
-		return;
+		return 0;
 
 	switch (Tree->Data)
 	{

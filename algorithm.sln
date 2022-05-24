@@ -31,6 +31,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "220520_LCRSTree", "220520_L
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "220523_BinaryTree", "220523_BinaryTree\220523_BinaryTree.vcxproj", "{82832C54-4448-4A76-AB5A-3F63353A791A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "220524_ExpressionTree", "220524_ExpressionTree\220524_ExpressionTree.vcxproj", "{546AC590-18FD-4628-BE4C-49771C3F3B15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -151,6 +153,14 @@ Global
 		{82832C54-4448-4A76-AB5A-3F63353A791A}.Release|x64.Build.0 = Release|x64
 		{82832C54-4448-4A76-AB5A-3F63353A791A}.Release|x86.ActiveCfg = Release|Win32
 		{82832C54-4448-4A76-AB5A-3F63353A791A}.Release|x86.Build.0 = Release|Win32
+		{546AC590-18FD-4628-BE4C-49771C3F3B15}.Debug|x64.ActiveCfg = Debug|x64
+		{546AC590-18FD-4628-BE4C-49771C3F3B15}.Debug|x64.Build.0 = Debug|x64
+		{546AC590-18FD-4628-BE4C-49771C3F3B15}.Debug|x86.ActiveCfg = Debug|Win32
+		{546AC590-18FD-4628-BE4C-49771C3F3B15}.Debug|x86.Build.0 = Debug|Win32
+		{546AC590-18FD-4628-BE4C-49771C3F3B15}.Release|x64.ActiveCfg = Release|x64
+		{546AC590-18FD-4628-BE4C-49771C3F3B15}.Release|x64.Build.0 = Release|x64
+		{546AC590-18FD-4628-BE4C-49771C3F3B15}.Release|x86.ActiveCfg = Release|Win32
+		{546AC590-18FD-4628-BE4C-49771C3F3B15}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

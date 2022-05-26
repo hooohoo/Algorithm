@@ -37,6 +37,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "220525_DisjointSet", "22052
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "220525_BubbleSort", "220525_BubbleSort\220525_BubbleSort.vcxproj", "{B093C42D-CA19-4C93-A9F9-97AB0711F2A0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "220526_InsertionSort", "220526_InsertionSort\220526_InsertionSort.vcxproj", "{2BDE8DBC-B87D-429E-80C9-CEBB484A5331}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -181,6 +183,14 @@ Global
 		{B093C42D-CA19-4C93-A9F9-97AB0711F2A0}.Release|x64.Build.0 = Release|x64
 		{B093C42D-CA19-4C93-A9F9-97AB0711F2A0}.Release|x86.ActiveCfg = Release|Win32
 		{B093C42D-CA19-4C93-A9F9-97AB0711F2A0}.Release|x86.Build.0 = Release|Win32
+		{2BDE8DBC-B87D-429E-80C9-CEBB484A5331}.Debug|x64.ActiveCfg = Debug|x64
+		{2BDE8DBC-B87D-429E-80C9-CEBB484A5331}.Debug|x64.Build.0 = Debug|x64
+		{2BDE8DBC-B87D-429E-80C9-CEBB484A5331}.Debug|x86.ActiveCfg = Debug|Win32
+		{2BDE8DBC-B87D-429E-80C9-CEBB484A5331}.Debug|x86.Build.0 = Debug|Win32
+		{2BDE8DBC-B87D-429E-80C9-CEBB484A5331}.Release|x64.ActiveCfg = Release|x64
+		{2BDE8DBC-B87D-429E-80C9-CEBB484A5331}.Release|x64.Build.0 = Release|x64
+		{2BDE8DBC-B87D-429E-80C9-CEBB484A5331}.Release|x86.ActiveCfg = Release|Win32
+		{2BDE8DBC-B87D-429E-80C9-CEBB484A5331}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

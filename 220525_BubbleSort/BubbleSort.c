@@ -1,5 +1,12 @@
 #include <stdio.h>
 
+void sort(int* num1, int* num2) {
+	int temp = 0;
+	temp = *num1;
+	*num1 = *num2;
+	*num2 = temp;
+}
+
 int main() {
 
 	int arr[10] = {5, 8, 2, 1, 6, 3, 7, 4, 9, 0};
@@ -15,9 +22,12 @@ int main() {
 		{
 			if (arr[t] > arr[j])
 			{
+				sort((arr+t), (arr+j));
+				/*
 				int temp = arr[t];
 				arr[t] = arr[j];
 				arr[j] = temp;
+				*/
 			}
 			t = j;
 			check++;

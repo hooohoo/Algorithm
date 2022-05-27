@@ -21,13 +21,10 @@ int main() {
 				if (arr[j] < temp) {
 					continue;
 				}
+				else {
+					break;
+				}
 			}
-			while (i != 0) {
-				arr[i + 1] = arr[i];
-				i--;
-			}
-			arr[i + 1] = arr[j];
-			arr[j] = temp;
 		}
 	}
 

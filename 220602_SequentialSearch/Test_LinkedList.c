@@ -1,10 +1,6 @@
-#pragma once
-
-typedef struct
-{
-    int    number;
-    double score;
-} Score;
+#define _CRT_SECURE_NO_WARNINGS
+#include "LinkedList.h"
+#include "Score.h"
 
 Score DataSet[] =
 {
@@ -30010,3 +30006,111 @@ Score DataSet[] =
 	29999,    342.52,
 	30000,    811.02
 };
+
+// 순차탐색
+Node* SequentialSearch(Node* Head, double TargetValue) {
+
+	while (Head != NULL) {
+		double Current = Head->Data.score;
+		if (Current == TargetValue) {
+			return Head;
+		}
+		if (Head->NextNode != NULL)
+			Head = Head->NextNode;
+		else break;
+	}
+	return NULL;
+}
+
+// 전진이동법
+Node* MoveToFront(Node** Head, double TargetValue) {
+	Node* CurrentNode = *Head;
+	Node* Temp = NULL;
+	while (Head != NULL) {
+		double Current = CurrentNode->Data.score;
+		if (Current == TargetValue) {
+
+			if (Head == CurrentNode) return *Head;
+			
+			Temp = CurrentNode;
+			CurrentNode->NextNode = (*Head)->NextNode;
+		}
+		if (CurrentNode->NextNode != NULL)
+			CurrentNode = CurrentNode->NextNode;
+		else break;
+	}
+	return NULL;
+}
+
+// 전위법
+Node* Transpose(Node** Head, double TargetValue) {
+	return NULL;
+}
+
+// 계수법
+
+int main(void) {
+
+
+	int i = 0;
+	int Count = 0;
+	Node* List = NULL;
+	Node* Current = NULL;
+	Node * NewNode = NULL;
+
+	double TargetValue = 0.0;
+
+	int Length = sizeof DataSet / sizeof DataSet[0];
+	
+	/* 노드 30000개 추가 */
+	for (i = 0; i < Length; i++) {
+		NewNode = SLL_CreateNode(DataSet[i]);
+		SLL_AppendNode(&List, NewNode);
+	}
+
+	while (1) {
+		printf("찾는 값을 입력하세요 : ");
+		scanf_s("%lf", &TargetValue);
+
+		if (TargetValue <= 0.0) break;
+
+		Node* SearchNode = SequentialSearch(List, TargetValue);
+
+		if (SearchNode != NULL) {
+			printf("List[%d] : number : %d, score : %lf\n", i, SearchNode->Data.number, SearchNode->Data.score);
+		}
+		else {
+			printf("찾는 값이 없습니다.\n");
+		}
+	}
+
+	
+
+	/* 리스트 출력 */
+	Count = SLL_GetNodeCount(List);
+	for (i = 0; i < Count; i++) {
+		Current = SLL_GetNodeAt(List, i);
+		printf("List[%d] : number : %d, score : %lf\n", i, Current->Data.number, Current->Data.score);
+	}
+
+
+	/* 모든 노드를 메모리에서 제거 */
+	printf("\nDestroying List...\n");
+
+	for (i = 0; i < Count; i++) {
+		Current = SLL_GetNodeAt(List, 0);
+		if (Current != NULL) {
+			SLL_RemoveNode(&List, Current);
+			SLL_DestroyNode(Current);
+		}
+	}
+
+
+
+
+	return 0;
+}
+
+
+
+

@@ -30025,29 +30025,69 @@ Node* SequentialSearch(Node* Head, double TargetValue) {
 // 전진이동법
 Node* MoveToFront(Node** Head, double TargetValue) {
 	Node* CurrentNode = *Head;
-	Node* Temp = NULL;
+	Node* Prev = NULL;
 	while (Head != NULL) {
-		double Current = CurrentNode->Data.score;
-		if (Current == TargetValue) {
 
-			if (Head == CurrentNode) return *Head;
-			
-			Temp = CurrentNode;
-			CurrentNode->NextNode = (*Head)->NextNode;
+		if (CurrentNode->Data.score == TargetValue) {
+		
+			// 첫 번째가 찾는 값이면 바로 리턴
+			if (*Head == CurrentNode) return *Head;
+
+			Prev->NextNode = CurrentNode->NextNode;
+			CurrentNode->NextNode = *Head;
+			*Head = CurrentNode;
+			return CurrentNode;
 		}
-		if (CurrentNode->NextNode != NULL)
+
+		if (CurrentNode->NextNode != NULL) {
+			Prev = CurrentNode;
 			CurrentNode = CurrentNode->NextNode;
-		else break;
+		}
+		else {
+			break;
+		}
 	}
 	return NULL;
 }
 
 // 전위법
 Node* Transpose(Node** Head, double TargetValue) {
+	Node* CurrentNode = *Head;
+	Node* Prev = NULL;
+	Node* PrevPrev = NULL;
+	while (Head != NULL) {
+
+		if (CurrentNode->Data.score == TargetValue) {
+
+			// 첫 번째가 찾는 값이면 바로 리턴
+			if (*Head == CurrentNode) return *Head;
+
+			if (PrevPrev != NULL)
+				PrevPrev->NextNode = CurrentNode;
+			else
+				*Head = CurrentNode;
+
+			Prev->NextNode = CurrentNode->NextNode;
+			CurrentNode->NextNode = Prev;
+			return CurrentNode;
+		}
+
+		if (CurrentNode->NextNode != NULL) {
+			PrevPrev = Prev;
+			Prev = CurrentNode;
+			CurrentNode = CurrentNode->NextNode;
+		}
+		else {
+			break;
+		}
+	}
 	return NULL;
 }
 
 // 계수법
+Node* Frequency(Node** Head, double TargetValue) {
+
+}
 
 int main(void) {
 
@@ -30069,15 +30109,23 @@ int main(void) {
 	}
 
 	while (1) {
+		// 출력
+		Count = SLL_GetNodeCount(List);
+		for (i = 0; i < Count; i++) {
+			if (i > 30 && i < 29900) continue;
+			Current = SLL_GetNodeAt(List, i);
+			printf("List[%d] : number : %d, score : %lf\n", i, Current->Data.number, Current->Data.score);
+		}
+
 		printf("찾는 값을 입력하세요 : ");
 		scanf_s("%lf", &TargetValue);
 
 		if (TargetValue <= 0.0) break;
 
-		Node* SearchNode = SequentialSearch(List, TargetValue);
+		Node* SearchNode = Transpose(&List, TargetValue);
 
 		if (SearchNode != NULL) {
-			printf("List[%d] : number : %d, score : %lf\n", i, SearchNode->Data.number, SearchNode->Data.score);
+			printf("List[%d] : number : %d, score : %lf\n\n", i, SearchNode->Data.number, SearchNode->Data.score);
 		}
 		else {
 			printf("찾는 값이 없습니다.\n");

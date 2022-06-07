@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "DoublyLinkedList.h"
 #include "Score.h"
 
@@ -30006,63 +30007,157 @@ Score DataSet[] =
 	30000,    811.02
 };
 
-int main(void) {
 
-	int i = 0;
-	int Count = 0;
-	Node* List = NULL;
-	Node* NewNode = NULL;
-	Node* Current = NULL;
+// 순차 탐색
+Node* SearchNode(Node* Head, double TargetValue) {
+	Node* Current = Head;
 
-	/* 노드 5개 추가 */
-	for (i = 0; i < 5; i++) {
-		NewNode = DLL_CreateNode(i);
-		DLL_AppendNode(&List, NewNode);
-	}
+	while (Current != NULL) {
 
-	/* 리스트 출력 */
-	Count = DLL_GetNodeCount(List);
-	for (i = 0; i < Count; i++) {
-		Current = DLL_GetNodeAt(List, i);
-		printf("List[%d] : %d\n", i, Current->Data);
-	}
-
-	/* 리스트의 세 번째 칸 뒤에 노드 삽입 */
-	printf("\nInteresting 3000 After [2]...\n\n");
-
-	Current = DLL_GetNodeAt(List, 2);
-	NewNode = DLL_CreateNode(3000);
-	DLL_InsertAfter(Current, NewNode);
-
-	/* 리스트 출력 */
-	Count = DLL_GetNodeCount(List);
-	for (i = 0; i < Count; i++) {
-		Current = DLL_GetNodeAt(List, i);
-		printf("List[%d] : %d\n", i, Current->Data);
-	}
-
-	/* 모든 노드를 메모리에서 제거 */
-	printf("\nDestroying List...\n");
-
-	Count = DLL_GetNodeCount(List);
-	for (i = 0; i < Count; i++) {
-		Current = DLL_GetNodeAt(List, 0);
-		if (Current != NULL) {
-			DLL_RemoveNode(&List, Current);
-			DLL_DestroyNode(Current);
+		if (Current->Data.score == TargetValue) {
+			return Current;
 		}
+
+		Current = Current->NextNode;
 	}
 
+	return NULL;
 
-
-
-
-
-	return 0;
 }
 
+// 전진이동법
+Node* MoveToFront(Node** Head, double TargetValue) {
+	Node* Current = *Head;
 
+	while (Current != NULL) {
+		if (Current->Data.score == TargetValue) {
+			//if (Current->PrevNode == NULL) {	// 헤드인 경우
+			if (Current == *Head) {
+				return Current;
+			}
+			else if (Current->NextNode == NULL) {	// 꼬리인 경우
+				Current->PrevNode->NextNode = NULL;	//링크에서 제외
+				Current->PrevNode = NULL;
 
+				Current->NextNode = *Head;
+				Current->NextNode->PrevNode = Current;
 
+				*Head = Current;
 
+				return Current;
+			}
+			else {	// 이 외의 경우(헤드노드와 꼬리노드 사이의 노드)
+				Current->PrevNode->NextNode = Current->NextNode;	// 링크에서 제외
+				Current->NextNode->PrevNode = Current->PrevNode;
 
+				Current->PrevNode = NULL;
+				Current->NextNode = NULL;
+
+				// Current를 헤드노드로 만든다.
+				Current->NextNode = (*Head);
+				Current->NextNode->PrevNode = Current;
+
+				*Head = Current;
+
+				return Current;
+			}
+			
+		}
+
+		Current = Current->NextNode;
+	}
+
+	return NULL;
+
+}
+
+// 전위법
+Node* Transpose(Node** Head, double TargetValue) {
+	return NULL;
+
+}
+
+int main( void )
+{
+    int   i       = 0;
+    int   Count   = 0;
+    Node* List    = NULL;	// Head 노드 주소값을 저장하는 공간
+    Node* NewNode = NULL;
+    Node* Current = NULL;
+
+	int Length = sizeof(DataSet) / sizeof(DataSet[0]);
+	double TargetValue;
+
+    /*  노드 30000개 추가 */
+    for ( i = 0; i < Length; i++ )
+    {
+        NewNode = DLL_CreateNode( DataSet[i] );
+        DLL_AppendNode( &List, NewNode );
+    }
+
+	while (1) {
+		printf("찾을 값을 입력하세요: ");
+		scanf("%lf", &TargetValue);
+
+		if (TargetValue <= 0.0) {
+			break;
+		}
+
+		Node * searchNode = MoveToFront(&List, TargetValue);
+
+		if (searchNode != NULL) {
+			// 노드 값을 출력
+			printf("찾은 값 Node Number: %d, Score: %lf\n", searchNode->Data.number, searchNode->Data.score);
+		}
+		else {
+			printf("찾는 값이 없습니다.\n");
+		}
+
+		
+		// 앞쪽 10개
+		for (i = 0; i < 10; i++)
+		{
+			Current = DLL_GetNodeAt(List, i);
+			printf("Node Number: %d, Score: %lf\n", Current->Data.number, Current->Data.score);
+		}
+
+		// 뒤쪽 10개
+		for (i = 29990; i < 30000; i++)
+		{
+			Current = DLL_GetNodeAt(List, i);
+			printf("Node Number: %d, Score: %lf\n", Current->Data.number, Current->Data.score);
+		}
+
+	}
+
+    /*  리스트 출력 */
+	/*
+    Count = DLL_GetNodeCount( List );
+    for ( i = 0; i<Count; i++ )
+    {
+        Current = DLL_GetNodeAt( List, i );
+        printf( "List[%d] : %d\n", i, Current->Data );
+    }
+	*/
+
+ 
+    /*  모든 노드를 메모리에서 제거     */
+    printf( "\nDestroying List...\n" );
+
+    Count = DLL_GetNodeCount(List);
+
+    for ( i = 0; i<Count; i++ )
+    {
+        Current = DLL_GetNodeAt( List, 0 );
+
+        if ( Current != NULL ) 
+        {
+            DLL_RemoveNode( &List, Current );
+            DLL_DestroyNode( Current );
+        }
+    }
+
+	
+
+    return 0;
+}
